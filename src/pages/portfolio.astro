@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
 ---
 
 <Layout title="Keenan Nicholson - Portfolio">
@@ -20,6 +21,67 @@ import Layout from "../layouts/Layout.astro";
         <a href="../portfolio">Portfolio</a>
         <a href="../goose_gallery">Goose Gallery</a>
       </nav>
+      <div class="content">
+        <div class="topContent">
+          <div class="project" id="project1">
+            <h2>Newfoundland ISS Tracker Twitter Bot</h2><a
+              href="https://twitter.com/ISSTrackerNL"
+            >
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a
+              href="https://github.com/Keenan-Nicholson/ISS_Twitter_Bot"
+              target="_blank"
+              ><i class="fa-brands fa-github"></i>
+            </a>
+            <p>
+              An application that implements the cheerio and node-fetch
+              libraries to scrape open-source International Space Station
+              location data from NASA’s website. It then formats it, and uses
+              the twit library to tweet where and when the space station is
+              visible from select cities in Newfoundland and Labrador.
+            </p>
+            <Image src={import("../images/ISS_Example.jpeg")} alt="" />
+          </div>
+          <div class="project" id="project2">
+            <h2>Twitter Contest Bot</h2><a
+              href="https://github.com/Keenan-Nicholson/Twitter_Contest_Bot"
+              target="_blank"
+              ><i class="fa-brands fa-github"></i>
+            </a>
+            <p>
+              An application that implements the tweepy library to search for
+              contests on Twitter by identifying keywords such as "giveaway",
+              "retweet to enter", "favourite to enter" etc., and depending on
+              the contest requirements, will favourite/retweet/follow the tweet
+              to enter.
+            </p>
+            <Image src={import("../images/twitter_contest_bot.jpeg")} alt="" />
+          </div>
+        </div>
+        <div class="bottomContent">
+          <div class="project" id="project3">
+            <h2>Canadian Emissions Analysis</h2>
+            <a
+              href="https://github.com/Keenan-Nicholson/Canadian_Emissions_Analysis"
+              target="_blank"
+              ><i class="fa-brands fa-github"></i>
+            </a>
+            <p>
+              A project for COMP3400 at Memorial University of Newfoundland
+              where I analyze the following dataset -
+              https://www.kaggle.com/datasets/debajyotipodder/co2-emission-by-vehicles.
+              The goal of this project is to predict the level of CO2 emissions
+              outputted by a vehicle based on several features the car has (for
+              example, transmission type, fuel type, fuel consumption, vehicle
+              make etc). This dataset is very nice, so for demonstration
+              purposes I have created artificial outliers and anomalies in the
+              dataset.
+            </p>
+            <Image src={import("../images/CA_Emission.jpeg")} alt="" />
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </Layout>
@@ -48,6 +110,43 @@ import Layout from "../layouts/Layout.astro";
     position: fixed;
     background-image: linear-gradient(180deg, #0e0b16, #091929);
   }
+  .content {
+    margin-top: 10rem;
+    display: flex;
+  }
+  .project {
+    margin: 3rem;
+    width: 40vw;
+    height: 50vh;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 1rem;
+    padding-top: 3rem;
+  }
+  #project1 img {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    max-width: 95%;
+    max-height: 60%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  #project2 img {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    max-width: 95%;
+    max-height: 60%;
+    /* object-fit: cover; */
+    border-radius: 10px;
+  }
+  #project3 img {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    max-width: 95%;
+    max-height: 50%;
+    /* object-fit: cover; */
+    border-radius: 10px;
+  }
   a {
     font-size: 1.5rem;
     font-weight: 600;
@@ -56,6 +155,16 @@ import Layout from "../layouts/Layout.astro";
   }
   a:hover {
     opacity: 0.8;
+  }
+  p {
+    font-size: larger;
+  }
+  h2 {
+    display: inline;
+    margin-right: 1.5rem;
+  }
+  i {
+    margin-right: 1rem;
   }
   .hamburger {
     align-self: flex-start;
@@ -123,6 +232,21 @@ import Layout from "../layouts/Layout.astro";
   @media (max-width: 767px) {
     .desktop-nav {
       display: none;
+    }
+    .wrapper {
+      margin-left: 10rem;
+    }
+    img {
+      display: none;
+    }
+    .project {
+      border: none;
+    }
+    #project2 {
+      margin-top: 20rem;
+    }
+    .mobile-nav {
+      height: 100%;
     }
   }
 </style>

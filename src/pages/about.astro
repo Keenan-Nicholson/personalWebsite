@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
 ---
 
 <Layout title="Keenan Nicholson - About">
@@ -20,6 +21,36 @@ import Layout from "../layouts/Layout.astro";
         <a href="../portfolio">Portfolio</a>
         <a href="../goose_gallery">Goose Gallery</a>
       </nav>
+      <div class="content">
+        <h1>About Me</h1>
+        <p>
+          In 2015 I recieved a red-seal certificate in Power Engineering: 4th
+          Class from College of the North Atlantic. In 2016 I made the decision
+          to attend university where I developed a love for mathematics and
+          computation and in 2020 recieved a Bachelor of Science with a major in
+          computational mathematics. Currently I am just a few courses away from
+          finishing my second degree, a Bachelor of Arts with a major in
+          computer science and a minor in geography focusing on GIS.
+
+          <br />
+          <br />
+          Between studies I have worked seasonally as a concrete finisher for around
+          8 years now, preparing, placing and finishing high end concrete features
+          for customers. Additionally, I have experience working customer service,
+          and as a teaching assistant for Memorial University of Newfoundland.
+
+          <br />
+          <br />
+          In my free time I enjoy building bots (mostly Twitter), attending the CTSNL
+          weekly coffee meetups, hiking and snowshoeing with my dog, <a
+            href="../goose_gallery"
+            target="_blank">Goose</a
+          >, and watching B-movies.
+        </p>
+      </div>
+      <div class="imgContainer">
+        <Image src={import("../images/headshot.jpeg")} alt="" />
+      </div>
     </div>
   </main>
 </Layout>
@@ -39,6 +70,25 @@ import Layout from "../layouts/Layout.astro";
     width: 100vw;
     height: 100vh;
   }
+  .content {
+    margin-top: 17rem;
+    width: 60vw;
+    height: 75vh;
+    order: 1;
+  }
+  .imgContainer {
+    margin-top: 19rem;
+    width: 30rem;
+    height: 30rem;
+    order: 0;
+  }
+  .imgContainer img {
+    max-width: 30rem;
+    max-height: 30rem;
+    object-fit: cover;
+    box-shadow: 0px 5px 10px 10px rgba(161, 136, 249, 0.1);
+    border-radius: 10px;
+  }
   .desktop-nav {
     display: flex;
     justify-content: space-around;
@@ -56,6 +106,10 @@ import Layout from "../layouts/Layout.astro";
   }
   a:hover {
     opacity: 0.8;
+  }
+  p {
+    font-size: x-large;
+    text-shadow: rgba(161, 136, 249) -40px 3px 150px;
   }
   .hamburger {
     align-self: flex-start;
@@ -123,6 +177,12 @@ import Layout from "../layouts/Layout.astro";
   @media (max-width: 767px) {
     .desktop-nav {
       display: none;
+    }
+    .imgContainer {
+      display: none;
+    }
+    .hamburger {
+      margin-left: 20rem;
     }
   }
 </style>
